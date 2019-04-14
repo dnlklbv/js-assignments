@@ -30,7 +30,9 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    return num % 3 === 0 && num % 5 === 0 ? 'FizzBuzz' :
+           num % 3 === 0 ? 'Fizz' :
+           num % 5 === 0 ? 'Buzz' : num;
 }
 
 
@@ -46,9 +48,12 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
-}
+    function factorial(n) {
+        return n ? n * factorial(n - 1) : 1;
+    }
 
+    return factorial(n);
+}
 
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
@@ -82,7 +87,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    return a + b > c && a + c > b && b + c > a;
 }
 
 
@@ -192,7 +197,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    return (isStartIncluded ? '[' : '(') + (a < b ? `${a}, ${b}` : `${b}, ${a}`) + (isEndIncluded ? ']' : ')');
 }
 
 
@@ -209,7 +214,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split("").reverse().join("");
 }
 
 
@@ -226,7 +231,7 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return +(('' + num).split("").reverse().join(""));
 }
 
 
@@ -251,7 +256,12 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    return ('' + ccn).split('')
+              .reverse()
+              .map( (x) => parseInt(x) )
+              .map( (x,idx) => idx % 2 ? x * 2 : x )
+              .map( (x) => x > 9 ? (x % 10) + 1 : x )
+              .reduce( (accum, x) => accum += x ) % 10 === 0;
 }
 
 
@@ -270,7 +280,7 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    return (num - 1) % 9 + 1;
 }
 
 
