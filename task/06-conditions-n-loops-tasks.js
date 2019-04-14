@@ -68,7 +68,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    for (let i = n1; i <= n2; i += 1) {
+        sum += i;
+    }
+    return sum;
 }
 
 
@@ -171,7 +175,11 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    for (let i = 0; i < str.length; i += 1) {
+        if((str.indexOf(str[i]) == i) && (str.indexOf(str[i], i + 1) == -1)) {
+            return str[i];
+        }
+    }
 }
 
 
